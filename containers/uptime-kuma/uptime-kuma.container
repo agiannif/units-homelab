@@ -1,0 +1,18 @@
+[Unit]
+Description=Uptime Kuma monitoring tool
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=docker.io/louislam/uptime-kuma:beta
+ContainerName=uptime-kuma
+PublishPort=3001:3001
+Volume=uptime-kuma-data.volume:/app/data
+AutoUpdate=registry
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target
