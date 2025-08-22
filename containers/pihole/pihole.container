@@ -9,16 +9,17 @@ ContainerName=pihole
 PublishPort=53:53/tcp
 PublishPort=53:53/udp
 PublishPort=8080:80/tcp
+PublishPort=8443:443/tcp
+UserNS=keep-id
 Environment=TZ=America/Los_Angeles
-Environment=FTLCONF_webserver_api_password=K2xvieHB
-Volume=pihole-etc.volume:/etc/pihole
-Volume=pihole-dnsmasq.volume:/etc/dnsmasq.d
-AddCapability=NET_ADMIN
-AutoUpdate=registry
+Environment=FTLCONF_webserver_api_password=REPLACEME
+Environment=FTLCONF_dns_listeningMode=all
+Volume=/srv/pihole/etc:/etc/pihole:Z
+Volume=/srv/pihole/dnsmasq:/etc/dnsmasq.d:Z
 
 [Service]
 Restart=always
 TimeoutStartSec=900
 
 [Install]
-WantedBy=multi-user.target default.target
+WantedBy=multi-user.user

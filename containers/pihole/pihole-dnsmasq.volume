@@ -1,9 +1,0 @@
-[Unit]
-Description=Pi-hole dnsmasq configuration volume
-Documentation=man:podman-systemd.unit(5)
-
-[Volume]
-VolumeName=pihole-dnsmasq
-
-[Install]
-WantedBy=multi-user.target default.target
