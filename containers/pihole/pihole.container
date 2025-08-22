@@ -6,11 +6,10 @@ Wants=network-online.target
 [Container]
 Image=docker.io/pihole/pihole:latest
 ContainerName=pihole
-PublishPort=53:53/tcp
-PublishPort=53:53/udp
-PublishPort=8080:80/tcp
+PublishPort=5300:53/tcp
+PublishPort=5300:53/udp
 PublishPort=8443:443/tcp
-UserNS=keep-id
+Environment=DNSMASQ_USER=root
 Environment=TZ=America/Los_Angeles
 Environment=FTLCONF_webserver_api_password=REPLACEME
 Environment=FTLCONF_dns_listeningMode=all
@@ -22,4 +21,4 @@ Restart=always
 TimeoutStartSec=900
 
 [Install]
-WantedBy=multi-user.user
+WantedBy=multi-user.target default.target

@@ -1,2 +1,3 @@
 [systemd]
 install_location = "~/.config/containers/systemd/"
+use_user = true

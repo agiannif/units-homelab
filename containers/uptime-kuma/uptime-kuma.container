@@ -7,7 +7,6 @@ Wants=network-online.target
 Image=docker.io/louislam/uptime-kuma:beta
 ContainerName=uptime-kuma
 PublishPort=3001:3001
-UserNS=keep-id
 Volume=/srv/uptime-kuma/data:/app/data:Z
 
 [Service]
@@ -15,4 +14,4 @@ Restart=always
 TimeoutStartSec=900
 
 [Install]
-WantedBy=multi-user.user
+WantedBy=multi-user.target default.target
