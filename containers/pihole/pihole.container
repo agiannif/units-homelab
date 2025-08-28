@@ -6,11 +6,10 @@ Wants=network-online.target
 [Container]
 Image=docker.io/pihole/pihole:latest
 ContainerName=pihole
-PublishPort=5300:53/tcp
-PublishPort=5300:53/udp
+PublishPort=53:53/tcp
+PublishPort=53:53/udp
 PublishPort=8443:443/tcp
-Environment=DNSMASQ_USER=root
-Environment=TZ=America/Los_Angeles
+Environment=TZ=REPLACEME
 Environment=FTLCONF_webserver_api_password=REPLACEME
 Environment=FTLCONF_dns_listeningMode=all
 Volume=/srv/pihole/etc:/etc/pihole:Z
